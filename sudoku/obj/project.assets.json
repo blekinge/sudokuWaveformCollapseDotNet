@@ -1,0 +1,89 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "waveformCollapse/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/waveformCollapse.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/waveformCollapse.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "waveformCollapse/1.0.0": {
+      "type": "project",
+      "path": "../waveformCollapse/waveformCollapse.csproj",
+      "msbuildProject": "../waveformCollapse/waveformCollapse.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "waveformCollapse >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/abr/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/abr/RiderProjects/sudoko/sudoku/sudoku.csproj",
+      "projectName": "sudoku",
+      "projectPath": "/home/abr/RiderProjects/sudoko/sudoku/sudoku.csproj",
+      "packagesPath": "/home/abr/.nuget/packages/",
+      "outputPath": "/home/abr/RiderProjects/sudoko/sudoku/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/abr/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "/home/abr/RiderProjects/sudoko/waveformCollapse/waveformCollapse.csproj": {
+              "projectPath": "/home/abr/RiderProjects/sudoko/waveformCollapse/waveformCollapse.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

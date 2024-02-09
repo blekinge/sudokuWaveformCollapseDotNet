@@ -1,0 +1,149 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:sudokuGui.ViewModels"
+        xmlns:waveformCollapse="clr-namespace:waveformCollapse;assembly=waveformCollapse"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="sudokuGui.Views.SudokuWindow"
+        Title="SudokuWindow"
+        x:DataType="viewModels:Sudoku4X4">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <viewModels:Sudoku4X4 />
+    </Design.DataContext>
+    <StackPanel>
+    <Grid ShowGridLines="False" Margin="0"
+          ColumnDefinitions="Auto, Auto"
+          RowDefinitions="Auto, Auto">
+        <Border BorderBrush="Black"
+                BorderThickness="2, 2, 1, 1">
+            <Grid ShowGridLines="False" Margin="0"
+                  ColumnDefinitions="50, 50"
+                  RowDefinitions="50, 50">
+
+                <Border Grid.Row="0" Grid.Column="0"
+                        BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[0][0].Value, Mode=OneWay }" />
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1"
+                        BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[0][1].Value, Mode=OneWay }" />
+                </Border>
+                <Border Grid.Row="1" Grid.Column="0"
+                        BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[1][0].Value, Mode=OneWay }" />
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1"
+                        BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[1][1].Value, Mode=OneWay }" />
+                </Border>
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black"
+                BorderThickness="1, 2, 2, 1">
+            <Grid ShowGridLines="False" Margin="0"
+                  ColumnDefinitions="50, 50"
+                  RowDefinitions="50, 50">
+                <Border Grid.Row="0" Grid.Column="0"
+                        BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[0][2].Value, Mode=OneWay }" />
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1"
+                        BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[0][3].Value, Mode=OneWay }" />
+
+
+                </Border>
+                <Border Grid.Row="1" Grid.Column="0"
+                        BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[1][2].Value, Mode=OneWay }" />
+
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1"
+                        BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[1][3].Value, Mode=OneWay }" />
+
+                </Border>
+            </Grid>
+
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black"
+                BorderThickness="2, 1, 1, 2">
+            <Grid ShowGridLines="False" Margin="0"
+                  ColumnDefinitions="50, 50"
+                  RowDefinitions="50, 50">
+                <Border Grid.Row="0" Grid.Column="0"
+                        BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[2][0].Value, Mode=OneWay }" />
+
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1"
+                        BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[2][1].Value, Mode=OneWay }" />
+
+                </Border>
+                <Border Grid.Row="1" Grid.Column="0"
+                        BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[3][0].Value, Mode=OneWay }" />
+
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1"
+                        BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[3][1].Value, Mode=OneWay }" />
+
+                </Border>
+            </Grid>
+
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black"
+                BorderThickness="1, 1, 2, 2">
+            <Grid ShowGridLines="False" Margin="0"
+                  ColumnDefinitions="50, 50"
+                  RowDefinitions="50, 50">
+                <Border Grid.Row="0" Grid.Column="0"
+                        BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[2][2].Value, Mode=OneWay }" />
+
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1"
+                        BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[2][3].Value, Mode=OneWay }" />
+
+                </Border>
+                <Border Grid.Row="1" Grid.Column="0"
+                        BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[3][2].Value, Mode=OneWay }" />
+
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1"
+                        BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=index[3][3].Value, Mode=OneWay }" />
+                </Border>
+            </Grid>
+
+        </Border>
+    </Grid>
+        <Button Command="{Binding SolveNextStep}">Step</Button>
+    </StackPanel>
+
+</Window>

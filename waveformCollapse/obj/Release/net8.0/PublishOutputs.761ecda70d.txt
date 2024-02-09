@@ -1,0 +1,3 @@
+/home/abr/RiderProjects/sudoko/waveformCollapse/bin/Release/net8.0/publish/waveformCollapse.dll
+/home/abr/RiderProjects/sudoko/waveformCollapse/bin/Release/net8.0/publish/waveformCollapse.deps.json
+/home/abr/RiderProjects/sudoko/waveformCollapse/bin/Release/net8.0/publish/waveformCollapse.pdb
