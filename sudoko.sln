@@ -2,11 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "waveformCollapse", "waveformCollapse\waveformCollapse.csproj", "{88DFAEA5-895A-4910-8DF1-5BC13512E2A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "waveformCollapse.Tests", "waveformCollapse.Tests\waveformCollapse.Tests.csproj", "{0F09F5AF-9309-4A0F-949D-54A41F183203}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sudokuGui4X4", "sudokuGui4X4\sudokuGui4X4.csproj", "{C53A7541-3E68-4313-BE98-8115665552CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sudoku", "sudoku\sudoku.csproj", "{8E6F6082-0952-4F48-B9C2-8D28703B0506}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuTest", "SudokuTest\SudokuTest.csproj", "{5AC3B2F5-4D2A-4F8B-AA20-AF0EC8A2C461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,10 +18,6 @@ Global
 		{88DFAEA5-895A-4910-8DF1-5BC13512E2A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88DFAEA5-895A-4910-8DF1-5BC13512E2A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88DFAEA5-895A-4910-8DF1-5BC13512E2A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F09F5AF-9309-4A0F-949D-54A41F183203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F09F5AF-9309-4A0F-949D-54A41F183203}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F09F5AF-9309-4A0F-949D-54A41F183203}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F09F5AF-9309-4A0F-949D-54A41F183203}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C53A7541-3E68-4313-BE98-8115665552CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C53A7541-3E68-4313-BE98-8115665552CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C53A7541-3E68-4313-BE98-8115665552CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -30,5 +26,9 @@ Global
 		{8E6F6082-0952-4F48-B9C2-8D28703B0506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E6F6082-0952-4F48-B9C2-8D28703B0506}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E6F6082-0952-4F48-B9C2-8D28703B0506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AC3B2F5-4D2A-4F8B-AA20-AF0EC8A2C461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AC3B2F5-4D2A-4F8B-AA20-AF0EC8A2C461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AC3B2F5-4D2A-4F8B-AA20-AF0EC8A2C461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AC3B2F5-4D2A-4F8B-AA20-AF0EC8A2C461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

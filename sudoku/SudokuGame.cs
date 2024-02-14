@@ -203,7 +203,7 @@ public abstract class SudokuGame
         return (new Solver(situation), situation);
     }
 
-    private static (Solver solver, SudokuBoard situation) BuildSudoku(int dimension)
+    public static (Solver solver, SudokuBoard situation) BuildSudoku(int dimension)
     {
         var values = Enumerable.Range(1, dimension*dimension).Select(i => $"{i}").Cast<object>().ToHashSet();
         
