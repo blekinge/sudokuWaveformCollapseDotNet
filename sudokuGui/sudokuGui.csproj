@@ -10,7 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
 
@@ -27,6 +26,12 @@
 
 
     <ItemGroup>
-      <ProjectReference Include="..\waveformCollapse\waveformCollapse.csproj" />
+        <ProjectReference Include="..\sudoku\sudoku.csproj" />
+
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Folder Include="Models\" />
     </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "waveformCollapse", "waveformCollapse\waveformCollapse.csproj", "{88DFAEA5-895A-4910-8DF1-5BC13512E2A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sudokuGui4X4", "sudokuGui4X4\sudokuGui4X4.csproj", "{C53A7541-3E68-4313-BE98-8115665552CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sudokuGui", "sudokuGui\sudokuGui.csproj", "{C53A7541-3E68-4313-BE98-8115665552CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sudoku", "sudoku\sudoku.csproj", "{8E6F6082-0952-4F48-B9C2-8D28703B0506}"
 EndProject

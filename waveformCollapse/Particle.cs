@@ -1,7 +1,16 @@
+using System.ComponentModel;
+
 namespace waveformCollapse;
 
-public abstract class Particle(string name, ICollection<object> possibleValues)
+public abstract class Particle(string name, ICollection<object> possibleValues) : INotifyPropertyChanged
 {
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected virtual void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
     private readonly List<Entanglement> _entanglements = [];
 
     public void Register(Entanglement entanglement)
@@ -22,6 +31,7 @@ public abstract class Particle(string name, ICollection<object> possibleValues)
             {
                 entanglement.ValueAssigned(value);
             }
+            OnPropertyChanged(nameof(value));
         }
     }
 
