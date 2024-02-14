@@ -34,10 +34,10 @@ public class Sudoku4X4 : ViewModelBase
         Field a3 = new("a3", values), b3 = new("b3", values), c3 = new("c3", values), d3 = new("d3", values);
         Field a4 = new("a4", values), b4 = new("b4", values), c4 = new("c4", values), d4 = new("d4", values);
 
-        a3.Value = v3;
-        a4.Value = v4;
-        d1.Value = v4;
-        d2.Value = v2;
+        a3.value = v3;
+        a4.value = v4;
+        d1.value = v4;
+        d2.value = v2;
 
         index = new List<List<Field>>()
         {

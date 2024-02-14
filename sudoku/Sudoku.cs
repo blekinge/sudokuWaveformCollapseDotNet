@@ -4,35 +4,38 @@ using waveformCollapse;
 namespace sudoku;
 
 public class Sudoku(
-    HashSet<Particle> allParticles,
+    ICollection<SudokuField> allParticles,
     HashSet<Entanglement> allEntanglements,
     HashSet<object> allPossibleValues)
-    : Situation(allParticles, allEntanglements, allPossibleValues)
+    : Situation(allParticles.Cast<Particle>().ToList(), allEntanglements, allPossibleValues)
 {
-    public const String ANSI_RESET = "\u001B[0m";
+    private const String ANSI_RESET = "\u001B[0m";
 
-    public const String ANSI_GREEN = "\u001B[32m";
+    private const String ANSI_GREEN = "\u001B[32m";
     public const String ANSI_FRAMED = "\u001B[51m";
-    public const String ANSI_BOLD = "\u001B[1m";
+    private const String ANSI_BOLD = "\u001B[1m";
 
-    public void S(Particle p, object? v)
+    private void S(Particle? p, object? v)
     {
         if (v == null) return;
-        p.Value = v;
-        p.Derived = false;
+        if (p == null) return;
+        p.value = v;
+        p.derived = false;
     }
 
     public void S(String column, String row, object v)
     {
-        var p = AllParticles
-                    .Where(p2 => p2.Row == row)
-                    .FirstOrDefault(p2 => p2.Column == column)
-                ?? throw new IndexOutOfRangeException("Index " +
-                                                      row +
-                                                      "," +
-                                                      column +
-                                                      " out of bounds");
-        S(p, v);
+        S(GetNamedParticle(column+row),v);
+        // var p = AllParticles
+        //             .Cast<SudokuField>()
+        //             .Where(p2 => p2.Row == row)
+        //             .FirstOrDefault(p2 => p2.Column == column)
+        //         ?? throw new IndexOutOfRangeException("Index " +
+        //                                               row +
+        //                                               "," +
+        //                                               column +
+        //                                               " out of bounds");
+        // S(p, v);
     }
 
 
@@ -43,7 +46,8 @@ public class Sudoku(
         int boxWidth = (int)Math.Round(Math.Sqrt(Math.Sqrt(AllParticles.Count())));
         int line = 0;
         int i = 0;
-        List<Particle?> particles = AllParticles
+        var particles = AllParticles
+            .Cast<SudokuField>()
             .OrderBy(particle => particle?.Row)
             .ThenBy(particle => particle?.Column)
             .ToList();
@@ -68,7 +72,7 @@ public class Sudoku(
                 finish = "|";
             }
 
-            var value = particle.Value?.ToString();
+            var value = particle.value?.ToString();
             if (value == null)
             {
                 result.Append("' '");
@@ -76,11 +80,11 @@ public class Sudoku(
             else
             {
                 result.Append('\'');
-                if (LastSet is not null && particle == LastSet)
+                if (lastSet is not null && particle == lastSet)
                 {
                     result.Append(ANSI_BOLD).Append(value).Append(ANSI_RESET);
                 }
-                else if (particle.Derived is not null && particle.Derived == true)
+                else if (particle.derived is not null && particle.derived == true)
                 {
                     result.Append(ANSI_GREEN).Append(value).Append(ANSI_RESET);
                 }

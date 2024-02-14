@@ -11,32 +11,49 @@ public abstract class Sudoku4X4
 
     public static void Main(string[] args)
     {
-        Sudoku situation = BuildSudoku4X4();
+        var (solver, situation) = BuildSudoku4X4();
+
 
         situation.S("a", "3", V3);
         situation.S("a", "4", V4);
         situation.S("d", "1", V4);
         situation.S("d", "2", V2);
+        
+        
 
         Console.WriteLine("Initial");
         Console.WriteLine(situation);
+        
+        while (! situation.IsSolved())
+        {
+            var key = Console.ReadKey();
+            if (key.Key == ConsoleKey.Enter)
+            {
+                var ass = solver.SolveNextStep();
+                Console.WriteLine(ass);
+                Console.WriteLine(situation);
+            }
 
-        Solver solver = new Solver(situation);
+            if (key.Key == ConsoleKey.Q)
+            {
+                break;
+            }
+        }
         // Situation solved = solver.SolveCompletely();
         // Console.WriteLine("\nSolved");
         // Console.WriteLine(solved);
     }
 
-    private static Sudoku BuildSudoku4X4()
+    private static (Solver solver, Sudoku situation) BuildSudoku4X4()
     {
         HashSet<object> values = [V1, V2, V3, V4];
 
-        Particle a1 = new(values), b1 = new(values), c1 = new(values), d1 = new(values);
-        Particle a2 = new(values), b2 = new(values), c2 = new(values), d2 = new(values);
-        Particle a3 = new(values), b3 = new(values), c3 = new(values), d3 = new(values);
-        Particle a4 = new(values), b4 = new(values), c4 = new(values), d4 = new(values);
+        SudokuField a1 = new("a1", values), b1 = new("b1", values), c1 = new("c1", values), d1 = new("d1", values);
+        SudokuField a2 = new("a2", values), b2 = new("b2", values), c2 = new("c2", values), d2 = new("d2", values);
+        SudokuField a3 = new("a3", values), b3 = new("b3", values), c3 = new("c3", values), d3 = new("d3", values);
+        SudokuField a4 = new("a4", values), b4 = new("b4", values), c4 = new("c4", values), d4 = new("d4", values);
 
-        var index = new Particle[][]
+        var index = new SudokuField[][]
         {
             [a1, b1, c1, d1],
             [a2, b2, c2, d2],
@@ -62,10 +79,10 @@ public abstract class Sudoku4X4
                              c4, d4
             ),
             //Rows
-            new Entanglement(index[0]),
-            new Entanglement(index[1]),
-            new Entanglement(index[2]),
-            new Entanglement(index[3]),
+            new Entanglement(a1, b1, c1, d1),
+            new Entanglement(a2, b2, c2, d2),
+            new Entanglement(a3, b3, c3, d3),
+            new Entanglement(a4, b4, c4, d4),
             //Columns
             new Entanglement(a1,
                              a2,
@@ -87,6 +104,9 @@ public abstract class Sudoku4X4
                              d3,
                              d4)
         ];
-        return new Sudoku(allParticles, allEntanglements, values);
+        var situation =  new Sudoku(allParticles, allEntanglements, values);
+        Solver solver = new Solver(situation);
+
+        return (solver, situation);
     }
 }

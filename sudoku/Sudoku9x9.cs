@@ -2,14 +2,9 @@ using waveformCollapse;
 
 namespace sudoku;
 
-public class Sudoku9X9(
-    Particle[][] index,
-    ICollection<SudokuField> allParticles,
-    ICollection<Entanglement> allEntanglements,
-    ICollection<object> allPossibleValues)
-    : Sudoku(allParticles, allEntanglements, allPossibleValues)
+public class Sudoku9X9
 {
-    public static Sudoku9X9 BuildSudoku9X9()
+    public static Sudoku BuildSudoku9X9()
     {
         SudokuValue v1 = new("1");
         SudokuValue v2 = new("2");
@@ -24,38 +19,38 @@ public class Sudoku9X9(
 
 
         //column1
-        Particle a1 = new(values), b1 = new(values), c1 = new(values);
-        Particle a2 = new(values), b2 = new(values), c2 = new(values);
-        Particle a3 = new(values), b3 = new(values), c3 = new(values);
-        Particle a4 = new(values), b4 = new(values), c4 = new(values);
-        Particle a5 = new(values), b5 = new(values), c5 = new(values);
-        Particle a6 = new(values), b6 = new(values), c6 = new(values);
-        Particle a7 = new(values), b7 = new(values), c7 = new(values);
-        Particle a8 = new(values), b8 = new(values), c8 = new(values);
-        Particle a9 = new(values), b9 = new(values), c9 = new(values);
+        SudokuField a1 = new("a1", values), b1 = new("b1", values), c1 = new("c1", values);
+        SudokuField a2 = new("a2", values), b2 = new("b2", values), c2 = new("c2", values);
+        SudokuField a3 = new("a3", values), b3 = new("b3", values), c3 = new("c3", values);
+        SudokuField a4 = new("a4", values), b4 = new("b4", values), c4 = new("c4", values);
+        SudokuField a5 = new("a5", values), b5 = new("b5", values), c5 = new("c5", values);
+        SudokuField a6 = new("a6", values), b6 = new("b6", values), c6 = new("c6", values);
+        SudokuField a7 = new("a7", values), b7 = new("b7", values), c7 = new("c7", values);
+        SudokuField a8 = new("a8", values), b8 = new("b8", values), c8 = new("c8", values);
+        SudokuField a9 = new("a9", values), b9 = new("b9", values), c9 = new("c9", values);
 
 
-        Particle d1 = new(values), e1 = new(values), f1 = new(values);
-        Particle d2 = new(values), e2 = new(values), f2 = new(values);
-        Particle d3 = new(values), e3 = new(values), f3 = new(values);
-        Particle d4 = new(values), e4 = new(values), f4 = new(values);
-        Particle d5 = new(values), e5 = new(values), f5 = new(values);
-        Particle d6 = new(values), e6 = new(values), f6 = new(values);
-        Particle d7 = new(values), e7 = new(values), f7 = new(values);
-        Particle d8 = new(values), e8 = new(values), f8 = new(values);
-        Particle d9 = new(values), e9 = new(values), f9 = new(values);
+        SudokuField d1 = new("d1", values), e1 = new("e1", values), f1 = new("f1", values);
+        SudokuField d2 = new("d2", values), e2 = new("e2", values), f2 = new("f2", values);
+        SudokuField d3 = new("d3", values), e3 = new("e3", values), f3 = new("f3", values);
+        SudokuField d4 = new("d4", values), e4 = new("e4", values), f4 = new("f4", values);
+        SudokuField d5 = new("d5", values), e5 = new("e5", values), f5 = new("f5", values);
+        SudokuField d6 = new("d6", values), e6 = new("e6", values), f6 = new("f6", values);
+        SudokuField d7 = new("d7", values), e7 = new("e7", values), f7 = new("f7", values);
+        SudokuField d8 = new("d8", values), e8 = new("e8", values), f8 = new("f8", values);
+        SudokuField d9 = new("d9", values), e9 = new("e9", values), f9 = new("f9", values);
 
-        Particle g1 = new(values), h1 = new(values), i1 = new(values);
-        Particle g2 = new(values), h2 = new(values), i2 = new(values);
-        Particle g3 = new(values), h3 = new(values), i3 = new(values);
-        Particle g4 = new(values), h4 = new(values), i4 = new(values);
-        Particle g5 = new(values), h5 = new(values), i5 = new(values);
-        Particle g6 = new(values), h6 = new(values), i6 = new(values);
-        Particle g7 = new(values), h7 = new(values), i7 = new(values);
-        Particle g8 = new(values), h8 = new(values), i8 = new(values);
-        Particle g9 = new(values), h9 = new(values), i9 = new(values);
+        SudokuField g1 = new("g1", values), h1 = new("h1", values), i1 = new("i1", values);
+        SudokuField g2 = new("g2", values), h2 = new("h2", values), i2 = new("i2", values);
+        SudokuField g3 = new("g3", values), h3 = new("h3", values), i3 = new("i3", values);
+        SudokuField g4 = new("g4", values), h4 = new("h4", values), i4 = new("i4", values);
+        SudokuField g5 = new("g5", values), h5 = new("h5", values), i5 = new("i5", values);
+        SudokuField g6 = new("g6", values), h6 = new("h6", values), i6 = new("i6", values);
+        SudokuField g7 = new("g7", values), h7 = new("h7", values), i7 = new("i7", values);
+        SudokuField g8 = new("g8", values), h8 = new("h8", values), i8 = new("i8", values);
+        SudokuField g9 = new("g9", values), h9 = new("h9", values), i9 = new("i9", values);
 
-        var index = new Particle[][]
+        var index = new SudokuField[][]
         {
             [a1, b1, c1, d1, e1, f1, g1, h1, i1],
             [a2, b2, c2, d2, e2, f2, g2, h2, i2],
@@ -106,7 +101,7 @@ public class Sudoku9X9(
             new SudokuEntanglement(allParticles, ["h"], ["1", "2", "3", "4", "5", "6", "7", "8", "9"]),
             new SudokuEntanglement(allParticles, ["i"], ["1", "2", "3", "4", "5", "6", "7", "8", "9"])
         ];
-        return new Sudoku9X9(index, allParticles, allEntanglements, values);
+        return new Sudoku(allParticles, allEntanglements, values);
 
     }
     

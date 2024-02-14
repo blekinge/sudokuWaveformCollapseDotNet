@@ -1,8 +1,17 @@
 namespace waveformCollapse;
 
-public class Particle(ICollection<object> possibleValues)
+public abstract class Particle(string name, ICollection<object> possibleValues)
 {
-    public object? Value
+    private readonly List<Entanglement> _entanglements = [];
+
+    public void Register(Entanglement entanglement)
+    {
+        _entanglements.Add(entanglement);
+    }
+
+    private object? _value;
+
+    public object? value
     {
         get => _value;
         set
@@ -16,29 +25,23 @@ public class Particle(ICollection<object> possibleValues)
         }
     }
 
-    public bool? Derived { get; set; }
+    public bool? derived { get; set; }
 
-    private readonly List<Entanglement> _entanglements = [];
-    private object? _value;
-
-    public void Register(Entanglement entanglement)
-    {
-        _entanglements.Add(entanglement);
-    }
-
-    public ICollection<object> PossibleValues { get; set; } = possibleValues;
-
-    public Assignment? RestrictValue(object value)
-    {
-        if (Value != null) return null;
-        if (!PossibleValues.Remove(value)) return null;
-        if (PossibleValues is not { Count: 1 }) return null;
-        return new Assignment(this, PossibleValues.First());
-    }
+    public string name { get; } = name;
+    public ICollection<object> possibleValues { get; set; } = possibleValues;
 
     public override string ToString()
     {
         return
-            $"{nameof(Value)}: {Value}, {nameof(Derived)}: {Derived}, {nameof(PossibleValues)}: {PossibleValues}";
+            $"{nameof(value)}: {value}, {nameof(derived)}: {derived}, {nameof(possibleValues)}: {possibleValues}";
+    }
+
+
+    public (Particle, object)? RestrictValue(object value)
+    {
+        if (this.value != null) return null;
+        if (!possibleValues.Remove(value)) return null;
+        if (possibleValues is not { Count: 1 }) return null;
+        return (this, possibleValues.First());
     }
 }

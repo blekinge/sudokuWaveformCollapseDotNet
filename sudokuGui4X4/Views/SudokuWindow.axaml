@@ -27,22 +27,22 @@
                 <Border Grid.Row="0" Grid.Column="0"
                         BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[0][0].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[0][0].value, Mode=OneWay }" />
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1"
                         BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[0][1].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[0][1].value, Mode=OneWay }" />
                 </Border>
                 <Border Grid.Row="1" Grid.Column="0"
                         BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[1][0].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[1][0].value, Mode=OneWay }" />
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1"
                         BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[1][1].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[1][1].value, Mode=OneWay }" />
                 </Border>
             </Grid>
         </Border>
@@ -54,25 +54,25 @@
                 <Border Grid.Row="0" Grid.Column="0"
                         BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[0][2].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[0][2].value, Mode=OneWay }" />
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1"
                         BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[0][3].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[0][3].value, Mode=OneWay }" />
 
 
                 </Border>
                 <Border Grid.Row="1" Grid.Column="0"
                         BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[1][2].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[1][2].value, Mode=OneWay }" />
 
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1"
                         BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[1][3].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[1][3].value, Mode=OneWay }" />
 
                 </Border>
             </Grid>
@@ -86,25 +86,25 @@
                 <Border Grid.Row="0" Grid.Column="0"
                         BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[2][0].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[2][0].value, Mode=OneWay }" />
 
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1"
                         BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[2][1].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[2][1].value, Mode=OneWay }" />
 
                 </Border>
                 <Border Grid.Row="1" Grid.Column="0"
                         BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[3][0].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[3][0].value, Mode=OneWay }" />
 
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1"
                         BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[3][1].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[3][1].value, Mode=OneWay }" />
 
                 </Border>
             </Grid>
@@ -119,25 +119,25 @@
                 <Border Grid.Row="0" Grid.Column="0"
                         BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[2][2].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[2][2].value, Mode=OneWay }" />
 
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1"
                         BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[2][3].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[2][3].value, Mode=OneWay }" />
 
                 </Border>
                 <Border Grid.Row="1" Grid.Column="0"
                         BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[3][2].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[3][2].value, Mode=OneWay }" />
 
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1"
                         BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Text="{Binding Path=index[3][3].Value, Mode=OneWay }" />
+                               Text="{Binding Path=index[3][3].value, Mode=OneWay }" />
                 </Border>
             </Grid>
 

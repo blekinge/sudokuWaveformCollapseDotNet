@@ -1,55 +1,64 @@
 namespace waveformCollapse;
 
-public class Solver
+public class Solver 
 {
-    private Situation situation { get; }
-    private readonly Queue<Assignment?> _workQueue = new();
+    public Situation situation { get; }
+    private readonly Queue<(Particle, object)> _workQueue = new();
 
     public Solver(Situation situation)
     {
         this.situation = situation;
+ 
+        Console.WriteLine();
         //reset possible values as we have to start fresh here
         situation.AllParticles.ToList()
-            .ForEach(p => p.PossibleValues = [..situation.AllPossibleValues]);
-        var loadInitialWork = LoadInitialWork();
-        loadInitialWork.ForEach(a => _workQueue.Enqueue(a));
+            .ForEach(p => p.possibleValues = [..situation.AllPossibleValues]);
+        //Add this solver for all entanglements
+        situation.AllEntanglements.ToList().ForEach(e => e.Register(this));
+        
+        LoadInitialWork().ForEach(a => _workQueue.Enqueue(a));
     }
 
 
-    // public Assignment? SolveNextStep()
-    // {
-    //     if (!situation.IsSolved() && _workQueue.Count > 0)
-    //     {
-    //         var nextAssignment = GetNextAssignment();
-    //         var deriveConsequencesOfAssignment = DeriveConsequencesOfAssignment(nextAssignment);
-    //         EnqueueNewAssignments(deriveConsequencesOfAssignment);
-    //         return nextAssignment;
-    //     }
-    //     return null;
-    // }
-
-    Assignment? GetNextAssignment()
+    public (Particle, object)? SolveNextStep()
     {
-        Assignment? assignment;
+        if (situation.IsSolved()) return null;
+        
+        var (particle, value) = GetNextAssignment() ?? default;
+
+        if (particle != null)
+        {
+            particle.value = value;
+            situation.lastSet = particle;
+        }
+
+        return (particle, value);
+    }
+
+    private (Particle, object)? GetNextAssignment()
+    {
+        if (_workQueue.Count <= 0) return null;
+
+        (Particle, object) assignment;
         do
         {
             assignment = _workQueue.Dequeue();
-        } while (assignment?.Particle is { Value: not null, Derived: true });
+        } while (assignment.Item1 is { value: not null });
 
         return assignment;
     }
 
-    public void EnqueueNewAssignments(List<Assignment?> newAssignments)
+    public void EnqueueNewAssignments(ICollection<(Particle, object)> newAssignments)
     {
-        newAssignments.ForEach(a => _workQueue.Enqueue(a));
+        newAssignments.ToList().ForEach(a => _workQueue.Enqueue(a));
     }
-
-    private List<Assignment?> LoadInitialWork()
+    
+    private List<(Particle, object)> LoadInitialWork()
     {
         return situation.AllParticles
-            .Where(p => p.Value is not null)
-            .Where(p => p.Derived is null or false)
-            .Select(p => new Assignment(particle: p, value: p.Value!))
+            .Where(p => p.value is not null)
+            .Where(p => p.derived is null or false)
+            .Select(p => (p, p.value!))
             .ToList();
     }
 }
