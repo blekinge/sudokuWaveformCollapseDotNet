@@ -33,7 +33,7 @@ public abstract class Particle(string name, ICollection<object> possibleValues)
     public override string ToString()
     {
         return
-            $"{nameof(value)}: {value}, {nameof(derived)}: {derived}, {nameof(possibleValues)}: {possibleValues}";
+            $"{nameof(name)}: {name}, {nameof(value)}: {value}";
     }
 
 

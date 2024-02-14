@@ -5,6 +5,6 @@ namespace sudoku;
 
 public class SudokuField(string name, ICollection<object> possibleValues) : Particle(name, possibleValues)
 {
-    public String Column { get; } = Regex.Replace(name, "\\d", "");
-    public String Row { get; } = Regex.Replace(name, "[a-z]", "");
+    public String column { get; } = Regex.Replace(name, "\\d", "");
+    public String row { get; } = Regex.Replace(name, "[a-z]", "");
 }

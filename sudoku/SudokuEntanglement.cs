@@ -2,9 +2,9 @@ using waveformCollapse;
 
 namespace sudoku;
 
-public class SudokuEntanglement(HashSet<SudokuField> allParticles, List<String> columns, List<String> rows)
+public class SudokuEntanglement(IEnumerable<SudokuField> allParticles, ICollection<string> columns, ICollection<string> rows)
     : Entanglement(allParticles.AsEnumerable()
-                       .Where(particle => columns.Contains(particle.Column))
-                       .Where(particle => rows.Contains(particle.Row))
+                       .Where(particle => columns.Contains(particle.column))
+                       .Where(particle => rows.Contains(particle.row))
                        .Cast<Particle>()
                        .ToArray());

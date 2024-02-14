@@ -2,20 +2,118 @@ using waveformCollapse;
 
 namespace sudoku;
 
-public class Sudoku9X9
+public abstract class SudokuGame
 {
-    public static Sudoku BuildSudoku9X9()
+    private static readonly string V1 = "1";
+    private static readonly string V2 = "2";
+    private static readonly string V3 = "3";
+    private static readonly string V4 = "4";
+    private static readonly string V5 = "5";
+    private static readonly string V6 = "6";
+    private static readonly string V7 = "7";
+    private static readonly string V8 = "8";
+    private static readonly string V9 = "9";
+
+    public static void Main(string[] args)
     {
-        SudokuValue v1 = new("1");
-        SudokuValue v2 = new("2");
-        SudokuValue v3 = new("3");
-        SudokuValue v4 = new("4");
-        SudokuValue v5 = new("5");
-        SudokuValue v6 = new("6");
-        SudokuValue v7 = new("7");
-        SudokuValue v8 = new("8");
-        SudokuValue v9 = new("9");
-        HashSet<object> values = [v1, v2, v3, v4, v5, v6, v7, v8, v9];
+        var (solver, situation) = BuildSudoku(2);
+        
+        situation.S("a", "3", V3);
+        situation.S("a", "4", V4);
+        situation.S("d", "1", V4);
+        situation.S("d", "2", V2);
+        
+        Console.WriteLine("Initial");
+        Console.WriteLine(situation);
+
+        while (!situation.IsSolved())
+        {
+            var key = Console.ReadKey();
+            if (key.Key == ConsoleKey.Enter)
+            {
+                var (particle, value) = solver.SolveNextStep() ?? default;
+                Console.WriteLine(particle);
+                Console.WriteLine(situation);
+            }
+
+            if (key.Key == ConsoleKey.Q)
+            {
+                break;
+            }
+        }
+        Console.WriteLine("\nSolved");
+    }
+
+    private static (Solver solver, SudokuBoard situation) BuildSudoku4X4()
+    {
+        HashSet<object> values = [V1, V2, V3, V4];
+
+        SudokuField a1 = new("a1", values), b1 = new("b1", values), c1 = new("c1", values), d1 = new("d1", values);
+        SudokuField a2 = new("a2", values), b2 = new("b2", values), c2 = new("c2", values), d2 = new("d2", values);
+        SudokuField a3 = new("a3", values), b3 = new("b3", values), c3 = new("c3", values), d3 = new("d3", values);
+        SudokuField a4 = new("a4", values), b4 = new("b4", values), c4 = new("c4", values), d4 = new("d4", values);
+
+        var index = new SudokuField[][]
+        {
+            [a1, b1, c1, d1],
+            [a2, b2, c2, d2],
+            [a3, b3, c3, d3],
+            [a4, b4, c4, d4]
+        };
+        var allParticles = index.AsEnumerable()
+            .SelectMany(particles => particles.AsEnumerable())
+            .ToHashSet();
+
+        HashSet<Entanglement> allEntanglements =
+        [
+            //Boxes
+            new Entanglement(a1, b1,
+                a2, b2),
+            new Entanglement(c1, d1,
+                c2, d2
+            ),
+            new Entanglement(a3, b3,
+                a4, b4
+            ),
+            new Entanglement(c3, d3,
+                c4, d4
+            ),
+            //Rows
+            new Entanglement(a1, b1, c1, d1),
+            new Entanglement(a2, b2, c2, d2),
+            new Entanglement(a3, b3, c3, d3),
+            new Entanglement(a4, b4, c4, d4),
+            //Columns
+            new Entanglement(a1,
+                a2,
+                a3,
+                a4
+            ),
+            new Entanglement(b1,
+                b2,
+                b3,
+                b4
+            ),
+            new Entanglement(c1,
+                c2,
+                c3,
+                c4
+            ),
+            new Entanglement(d1,
+                d2,
+                d3,
+                d4)
+        ];
+        var situation = new SudokuBoard(allParticles, allEntanglements, values);
+        Solver solver = new Solver(situation);
+
+        return (solver, situation);
+    }
+
+
+    private static (Solver solver, SudokuBoard situation) BuildSudoku9X9()
+    {
+        HashSet<object> values = [V1, V2, V3, V4, V5, V6, V7, V8, V9];
 
 
         //column1
@@ -101,81 +199,54 @@ public class Sudoku9X9
             new SudokuEntanglement(allParticles, ["h"], ["1", "2", "3", "4", "5", "6", "7", "8", "9"]),
             new SudokuEntanglement(allParticles, ["i"], ["1", "2", "3", "4", "5", "6", "7", "8", "9"])
         ];
-        return new Sudoku(allParticles, allEntanglements, values);
-
+        var situation = new SudokuBoard(allParticles, allEntanglements, values);
+        return (new Solver(situation), situation);
     }
-    
-/*
 
-public void readOds(Path odsFile) throws IOException {
-SpreadSheet spread = new SpreadSheet(odsFile.toFile());
+    private static (Solver solver, SudokuBoard situation) BuildSudoku(int dimension)
+    {
+        var values = Enumerable.Range(1, dimension*dimension).Select(i => $"{i}").Cast<object>().ToHashSet();
+        
+        var rows = Enumerable.Range(1, dimension*dimension).Select(i => i.ToString()).ToList();
+        var columns = Enumerable.Range('a', dimension*dimension).Select(i => Convert.ToChar(i).ToString()).ToList();
 
-List<Sheet> sheets = spread.getSheets();
-
-Sheet sheet = spread.getSheet("sudoku");
-com.github.miachm.sods.Range range = sheet.getDataRange();
-List<Integer> rows = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8);
-List<Integer> columns = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8);
-for (Integer row : rows) {
-    for (Integer column : columns) {
-        com.github.miachm.sods.Range cell = range.getCell(row, column);
-        s(getIndex()[row][column], toValue(cell.getValue()));
-    }
-}
-}
-
-
-private Value toValue(Object value) {
-if (value == null) {
-    return null;
-}
-if (value instanceof Double) {
-    Double d = (Double) value;
-    return new Value("" + d.intValue());
-}
-return new Value("" + (value.toString()));
-}
-
-public void writeOds(Path odsFile) throws IOException {
-SpreadSheet spread = new SpreadSheet(odsFile.toFile());
-
-Style style1 = new Style();
-style1.setTextAligment(Style.TEXT_ALIGMENT.Center);
-
-
-Style style2 = new Style();
-style2.setTextAligment(Style.TEXT_ALIGMENT.Center);
-style2.setFontColor(new Color(0, 255, 0));
-
-Sheet sheet = new Sheet("solution");
-sheet.appendColumns(9);
-sheet.appendRows(9);
-sheet.setColumnWidths(0, 9, 4.52);
-sheet.setRowHeights(0, 9, 4.62);
-
-com.github.miachm.sods.Range range = sheet.getRange(0, 0, 9, 9);
-List<Integer> rows = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8);
-List<Integer> columns = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8);
-for (Integer row : rows) {
-    for (Integer column : columns) {
-        var cell = range.getCell(row, column);
-        Particle p = getIndex()[row][column];
-        if (p.getValue() != null) {
-            cell.setValue(p.getValue().getValue());
-            if (p.getDerived()) {
-                cell.setStyle(style2);
-            } else {
-                cell.setStyle(style1);
-            }
+        HashSet<SudokuField> allParticles = [];
+        foreach (var field in 
+                 from column in columns 
+                 from row in rows 
+                 select new SudokuField(column + row, values))
+        {
+            allParticles.Add(field);
         }
 
 
+        HashSet<Entanglement> allEntanglements = [];
+        foreach (var column in columns)
+        {
+            allEntanglements.Add(
+                new Entanglement(allParticles.Where(p => p.column == column).Cast<Particle>().ToArray()));
+        }
+       
+        foreach (var row in rows)
+        {
+            allEntanglements.Add(
+                new Entanglement(allParticles.Where(p => p.row == row).Cast<Particle>().ToArray()));
+        }
+
+        for (var i = 0; i < dimension*dimension; i+=dimension)
+        {
+            for (var j = 0; j < dimension*dimension; j+=dimension)
+            {
+                var boxColumns = columns[new Range(i, i + dimension)];
+                var boxRows = rows[new Range(i, i + dimension)];
+
+                allEntanglements.Add(
+                    new Entanglement( allParticles.Where(p => boxColumns.Contains(p.column)).Where(p => boxRows.Contains(p.row)).Cast<Particle>().ToArray()));
+            }
+
+        }
+
+        var situation = new SudokuBoard(allParticles, allEntanglements, values);
+        return (new Solver(situation), situation);
     }
-}
-
-spread.appendSheet(sheet);
-
-spread.save(odsFile.toFile());
-}
-*/
 }
