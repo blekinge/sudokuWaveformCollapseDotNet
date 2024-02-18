@@ -19,25 +19,30 @@
     <Window.Resources>
         <DataTemplate DataType="sudoku:SudokuField" x:Key="FieldTemplate">
             <Grid ColumnDefinitions="*, Auto, *" RowDefinitions="*, Auto, *">
+
                 <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            IsVisible="{Binding Value, Converter={x:Static ObjectConverters.IsNull}, FallbackValue=''}"
-                           Text="{Binding Path=PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter} , FallbackValue=''}" />
+                           Text="{Binding Path=PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter} , FallbackValue=''}"
+                           Tapped="OptionalValueClicked" />
                 <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            IsVisible="{Binding Value, Converter={x:Static ObjectConverters.IsNull}, FallbackValue=''}"
-                           Text="{Binding Path=PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}, FallbackValue=''}" />
+                           Text="{Binding Path=PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}, FallbackValue=''}"
+                           Tapped="OptionalValueClicked" />
                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                            VerticalAlignment="Center"
                            Text="{Binding Path=Value , FallbackValue=''}" />
                 <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            IsVisible="{Binding Value, Converter={x:Static ObjectConverters.IsNull}, FallbackValue=''}"
-                           Text="{Binding Path=PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}, FallbackValue=''}" />
+                           Text="{Binding Path=PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}, FallbackValue=''}"
+                           Tapped="OptionalValueClicked" />
                 <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            IsVisible="{Binding Value, Converter={x:Static ObjectConverters.IsNull}, FallbackValue=''}"
-                           Text="{Binding Path=PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}, FallbackValue=''}" />
+                           Text="{Binding Path=PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}, FallbackValue=''}"
+                           Tapped="OptionalValueClicked" />
             </Grid>
         </DataTemplate>
 
@@ -54,19 +59,23 @@
                       RowDefinitions="50, 50">
                     <Border Grid.Row="0" Grid.Column="0"
                             BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
-                        <ContentControl Content="{Binding Index[0][0]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[0][0]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="0" Grid.Column="1"
                             BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
-                        <ContentControl Content="{Binding Index[0][1]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[0][1]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="1" Grid.Column="0"
                             BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
-                        <ContentControl Content="{Binding Index[1][0]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[1][0]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="1" Grid.Column="1"
                             BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
-                        <ContentControl Content="{Binding Index[1][1]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[1][1]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                 </Grid>
             </Border>
@@ -77,19 +86,23 @@
                       RowDefinitions="50, 50">
                     <Border Grid.Row="0" Grid.Column="0"
                             BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
-                        <ContentControl Content="{Binding Index[0][2]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[0][2]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="0" Grid.Column="1"
                             BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
-                        <ContentControl Content="{Binding Index[0][3]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[0][3]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="1" Grid.Column="0"
                             BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
-                        <ContentControl Content="{Binding Index[1][2]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[1][2]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="1" Grid.Column="1"
                             BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
-                        <ContentControl Content="{Binding Index[1][3]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[1][3]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                 </Grid>
 
@@ -101,19 +114,23 @@
                       RowDefinitions="50, 50">
                     <Border Grid.Row="0" Grid.Column="0"
                             BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
-                        <ContentControl Content="{Binding Index[2][0]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[2][0]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="0" Grid.Column="1"
                             BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
-                        <ContentControl Content="{Binding Index[2][1]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[2][1]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="1" Grid.Column="0"
                             BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
-                        <ContentControl Content="{Binding Index[3][0]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[3][0]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="1" Grid.Column="1"
                             BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
-                        <ContentControl Content="{Binding Index[3][1]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[3][1]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                 </Grid>
             </Border>
@@ -125,19 +142,23 @@
                       RowDefinitions="50, 50">
                     <Border Grid.Row="0" Grid.Column="0"
                             BorderBrush="Black" BorderThickness="0, 0, 1 ,1">
-                        <ContentControl Content="{Binding Index[2][2]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[2][2]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="0" Grid.Column="1"
                             BorderBrush="Black" BorderThickness="0, 0, 0 ,1">
-                        <ContentControl Content="{Binding Index[2][3]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[2][3]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="1" Grid.Column="0"
                             BorderBrush="Black" BorderThickness="0, 0, 1 ,0">
-                        <ContentControl Content="{Binding Index[3][2]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[3][2]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                     <Border Grid.Row="1" Grid.Column="1"
                             BorderBrush="Black" BorderThickness="0, 0, 0 ,0">
-                        <ContentControl Content="{Binding Index[3][3]}" ContentTemplate="{DynamicResource FieldTemplate}" />
+                        <ContentControl Content="{Binding Index[3][3]}"
+                                        ContentTemplate="{DynamicResource FieldTemplate}" />
                     </Border>
                 </Grid>
 

@@ -32,23 +32,19 @@ public class Solver
         var (particle, value) = GetNextAssignment() ?? default;
         if (particle == null) return null;
 
+        if (!particle.PossibleValues.Contains(value)) return SolveNextStep();
+
+        if (particle.Value is not null) return SolveNextStep();;
+        
         particle.Value = value;
         Situation.LastSet = particle;
-
         return (particle, value);
     }
 
     private (Particle, object)? GetNextAssignment()
     {
-        if (_workQueue.Count <= 0) return null;
-
-        (Particle, object) assignment;
-        do
-        {
-            assignment = _workQueue.Dequeue();
-        } while (assignment.Item1 is { Value: not null });
-
-        return assignment;
+        if (_workQueue.TryDequeue(out var assignment)) return assignment;
+        return null;
     }
 
     private void EnqueueNewAssignments(IEnumerable<(Particle, object)> newAssignments)
