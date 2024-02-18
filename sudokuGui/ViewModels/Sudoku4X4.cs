@@ -46,6 +46,6 @@ public class Sudoku4X4 : ViewModelBase
                 .ToList());
         }
         
-        Situation.AllEntanglements.ToList().ForEach(Console.WriteLine);
+        Situation.AllEntanglements.ForEach(Console.WriteLine);
     }
 }

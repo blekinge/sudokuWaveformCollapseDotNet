@@ -11,7 +11,7 @@ public class Solver
         Situation = situation;
 
         //reset possible values as we have to start fresh here
-        situation.AllParticles.ToList()
+        situation.AllParticles
                  .ForEach(p =>
                   {
                       List<object?> objPossibleValues = [..situation.AllPossibleValues];
@@ -20,7 +20,7 @@ public class Solver
                       p.Derived = null;
                   });
         //Add this solver for all entanglements
-        situation.AllEntanglements.ToList()
+        situation.AllEntanglements
                  .ForEach(e => e.NewAssignmentsCallback(EnqueueNewAssignments));
     }
 
@@ -49,7 +49,6 @@ public class Solver
 
     private void EnqueueNewAssignments(IEnumerable<(Particle, object)> newAssignments)
     {
-        newAssignments.ToList()
-                      .ForEach(a => _workQueue.Enqueue(a));
+        newAssignments.ForEach(a => _workQueue.Enqueue(a));
     }
 }

@@ -23,4 +23,15 @@ public partial class SudokuWindow : Window
                 break;
         }
     }
+
+    private void UnselectClicked(object? sender, TappedEventArgs e)
+    {
+        switch (sender)
+        {
+            case null:
+                return;
+            case TextBlock { DataContext: SudokuField sudokuField }:
+                sudokuField.Value = null;
+                break;
+        }    }
 }

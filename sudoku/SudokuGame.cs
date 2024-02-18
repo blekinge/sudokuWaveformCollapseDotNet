@@ -48,10 +48,18 @@ public abstract class SudokuGame
 
     public static (Solver solver, SudokuBoard situation) BuildSudoku(int dimension)
     {
-        var values = Enumerable.Range(1, dimension * dimension).Select(i => $"{i}").Cast<object>().ToList();
+        var values = Enumerable.Range(1, dimension * dimension)
+                               .Select(i => $"{i}")
+                               .Cast<object>()
+                               .ToList();
 
-        var rows = Enumerable.Range(1, dimension * dimension).Select(i => i.ToString()).ToList();
-        var columns = Enumerable.Range('a', dimension * dimension).Select(i => Convert.ToChar(i).ToString()).ToList();
+        var rows = Enumerable.Range(1, dimension * dimension)
+                             .Select(i => i.ToString())
+                             .ToList();
+        var columns = Enumerable.Range('a', dimension * dimension)
+                                .Select(i => Convert.ToChar(i)
+                                                    .ToString())
+                                .ToList();
 
         HashSet<SudokuField> allParticles = [];
         foreach (var field in
@@ -67,13 +75,21 @@ public abstract class SudokuGame
         foreach (var column in columns)
         {
             allEntanglements.Add(
-                new Entanglement(name: $"column-{column}", particles: allParticles.Where(p => p.Column == column).Cast<Particle>().ToArray()));
+                new Entanglement(name: $"column-{column}",
+                                 particles: allParticles.Where(p => p.Column == column)
+                                                        .Cast<Particle>()
+                                                        .ToArray(),
+                                 allAllowedValues: values));
         }
 
         foreach (var row in rows)
         {
             allEntanglements.Add(
-                new Entanglement(name: $"row-{row}", particles: allParticles.Where(p => p.Row == row).Cast<Particle>().ToArray()));
+                new Entanglement(name: $"row-{row}",
+                                 particles: allParticles.Where(p => p.Row == row)
+                                                        .Cast<Particle>()
+                                                        .ToArray(),
+                                 allAllowedValues: values));
         }
 
         for (var i = 0; i < dimension * dimension; i += dimension)
@@ -87,10 +103,11 @@ public abstract class SudokuGame
                     new Entanglement(
                         name: $"box-{boxColumns.First()}-{boxColumns.Last()},{boxRows.First()}-{boxRows.Last()}",
                         particles: allParticles
-                        .Where(p => boxColumns.Contains(p.Column))
-                        .Where(p => boxRows.Contains(p.Row))
-                        .Cast<Particle>()
-                        .ToArray()));
+                                  .Where(p => boxColumns.Contains(p.Column))
+                                  .Where(p => boxRows.Contains(p.Row))
+                                  .Cast<Particle>()
+                                  .ToArray(),
+                        allAllowedValues: values));
             }
         }
 

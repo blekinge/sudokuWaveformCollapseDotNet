@@ -27,12 +27,46 @@ public abstract class Particle(string name) : INotifyPropertyChanged
         get => _value;
         set
         {
-            if (value is null) return;
+
+            if (value is null)
+            {
+                //TODO proper restoration of state when value becomes unset
+                var allowedValuesToRestore = RestorePossibleValues();
+                if (allowedValuesToRestore != null) PossibleValues = allowedValuesToRestore;
+                _entanglements.ForEach(e => e.Recalculate(_value));
+            }
+            else
+            {
+                _entanglements.ForEach(e => e.EliminateValueFromEntanglement(value));
+            }
             _value = value;
+
             OnPropertyChanged(nameof(Value));
-            _entanglements.ToList()
-                          .ForEach(e => e.EliminateValueFromEntanglement(value));
         }
+    }
+
+    private List<object?>? RestorePossibleValues()
+    {
+        List<object?>? allowedValuesToRestore = null;
+        foreach (var allow in _entanglements.Select(entanglement => entanglement.AllowedValues()))
+        {
+            if (allowedValuesToRestore == null)
+            {
+                allowedValuesToRestore = [..allow];
+            }
+            else
+            {
+                foreach (var (item, index) in allow.WithIndex())
+                {
+                    if (item == null)
+                    {
+                        allowedValuesToRestore[index] = null;
+                    }
+                }
+            }
+        }
+
+        return allowedValuesToRestore;
     }
 
     public bool? Derived { get; set; }

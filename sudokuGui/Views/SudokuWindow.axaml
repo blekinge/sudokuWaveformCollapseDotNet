@@ -32,7 +32,8 @@
                            Tapped="OptionalValueClicked" />
                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                            VerticalAlignment="Center"
-                           Text="{Binding Path=Value , FallbackValue=''}" />
+                           Text="{Binding Path=Value , FallbackValue=''}" 
+                           Tapped="UnselectClicked"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            IsVisible="{Binding Value, Converter={x:Static ObjectConverters.IsNull}, FallbackValue=''}"
