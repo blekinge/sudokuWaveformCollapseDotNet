@@ -2,21 +2,21 @@ namespace waveformCollapse;
 
 public class Entanglement
 {
-    public string Name { get; }
-    public readonly IEnumerable<Particle> Particles;
-    private Solver? _solver;
+    private readonly string _name;
+    private readonly IEnumerable<Particle> _particles;
+    private Action<IEnumerable<(Particle, object)>>? _callback;
 
-    public void ValueAssigned(object value)
+    public void EliminateValueFromEntanglement(object value)
     {
-        var assignments = Particles
+        var assignments = _particles
             .Select(p => p.RestrictValue(value))
             .Where(a => a is not null)
             .Select(a => a!.Value)
             .ToHashSet();
 
-        var uniqueValues = Particles
+        var uniqueValues = _particles
             .Where(p => p.Value is null)
-            .SelectMany(p => p.possibleValues)
+            .SelectMany(p => p.PossibleValues)
             .Where(v => v is not null)
             .GroupBy(p => p)
             .Where(g => g.Count() == 1)
@@ -25,34 +25,34 @@ public class Entanglement
         foreach (var uniqueValue in uniqueValues)
         {
             assignments.UnionWith(
-                Particles
+                _particles
                     .Where(p => p.Value is null)
-                    .Where(p => p.possibleValues.Contains(uniqueValue))
+                    .Where(p => p.PossibleValues.Contains(uniqueValue))
                     .Select(p => (p, uniqueValue))
                     .ToHashSet()!);
         }
 
-        _solver?.EnqueueNewAssignments(assignments);
+        _callback?.Invoke(assignments);
     }
 
     public Entanglement(string name, params Particle[] particles)
     {
-        Name = name;
+        _name = name;
         foreach (var particle in particles)
         {
             particle.Register(this);
         }
 
-        Particles = [..particles.AsEnumerable().Distinct()];
-    }
-
-    public void Register(Solver? solver)
-    {
-        _solver = solver;
+        _particles = [..particles.AsEnumerable().Distinct()];
     }
 
     public override string ToString()
     {
-        return $"{Name}: {String.Join(',', Particles.Select(p => p.Name+"="+p.Value))}";
+        return $"{_name}: {string.Join(',', _particles.Select(p => p.Name+"="+p.Value))}";
+    }
+
+    public void NewAssignmentsCallback(Action<IEnumerable<(Particle, object)>>? callback)
+    {
+        _callback = callback;
     }
 }

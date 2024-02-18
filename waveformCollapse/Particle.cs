@@ -1,13 +1,26 @@
+using System.Collections.Specialized;
 using System.ComponentModel;
 
 namespace waveformCollapse;
 
-public abstract class Particle(string name) : INotifyPropertyChanged
+public abstract class Particle(string name) : INotifyPropertyChanged, INotifyCollectionChanged
 {
+    public event NotifyCollectionChangedEventHandler? CollectionChanged;
+
+    protected virtual void OnCollectionChanged(string collectionName, int index, object? value)
+    {
+        Console.WriteLine($"Particle {Name} changed on collection {collectionName} with {index} and {value}");
+        CollectionChanged?.Invoke(this,
+                                  new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace,
+                                                                       value,
+                                                                       index));
+    }
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged(string propertyName)
     {
+        Console.WriteLine($"Particle {Name} changed on {propertyName}");
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
@@ -27,12 +40,9 @@ public abstract class Particle(string name) : INotifyPropertyChanged
         {
             if (value is null) return;
             _value = value;
-            foreach (var entanglement in _entanglements)
-            {
-                entanglement.ValueAssigned(value);
-            }
-
             OnPropertyChanged(nameof(Value));
+            _entanglements.ToList()
+                          .ForEach(e => e.EliminateValueFromEntanglement(value));
         }
     }
 
@@ -40,23 +50,12 @@ public abstract class Particle(string name) : INotifyPropertyChanged
 
     public string Name { get; } = name;
 
-    private List<object?> _possibleValues = [];
-
-    public List<object?> possibleValues
-    {
-        get => _possibleValues;
-        set
-        {
-            if (Equals(value, _possibleValues)) return;
-            _possibleValues = value;
-            OnPropertyChanged(nameof(possibleValues));
-        }
-    }
+    public List<object?> PossibleValues { get; set; } = [];
 
     public override string ToString()
     {
         return
-            $"{nameof(Name)}: {Name}, {nameof(Value)}: {Value}, {nameof(possibleValues)}: {String.Join(",", possibleValues)}";
+            $"{nameof(Name)}: {Name}, {nameof(Value)}: {Value}, {nameof(PossibleValues)}: {String.Join(",", PossibleValues)}";
     }
 
 
@@ -64,18 +63,20 @@ public abstract class Particle(string name) : INotifyPropertyChanged
     {
         if (Value != null) return null;
 
-        var indexOfRestrictedValue = possibleValues.FindIndex(v => v?.Equals(restriction) ?? false);
-        if (indexOfRestrictedValue == -1)
+        var indexOfRestrictedValue = PossibleValues?.FindIndex(v => v?.Equals(restriction) ?? false) ?? -1;
+        if (indexOfRestrictedValue is -1)
         {
             return null;
         }
 
-        possibleValues[indexOfRestrictedValue] = default;
-        OnPropertyChanged(nameof(possibleValues));
+        PossibleValues![indexOfRestrictedValue] = default;
+        OnCollectionChanged(nameof(PossibleValues), indexOfRestrictedValue, restriction);
+        OnPropertyChanged(nameof(PossibleValues));
 
-        if (possibleValues.Count(v => v is not null) != 1) return null;
+
+        if (PossibleValues?.Count(v => v is not null) != 1) return null;
 
         Console.WriteLine(this);
-        return (this, possibleValues.First(v => v is not null))!;
+        return (this, PossibleValues.First(v => v is not null))!;
     }
 }

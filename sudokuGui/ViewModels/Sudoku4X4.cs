@@ -18,8 +18,7 @@ public class Sudoku4X4 : ViewModelBase
     {
         var ass = Solver.SolveNextStep();
         Console.WriteLine(ass);
-        // var propertyChangingEventArgs = new PropertyChangingEventArgs(nameof(Index));
-        // ((IReactiveObject)this).RaisePropertyChanging(propertyChangingEventArgs);
+        ((IReactiveObject)this).RaisePropertyChanging(new PropertyChangingEventArgs(nameof(Index)));
     }
 
     public Sudoku4X4()
