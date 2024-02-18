@@ -2,31 +2,32 @@ namespace waveformCollapse;
 
 
 public class Situation(
-    ICollection<Particle> allParticles,
-    ICollection<Entanglement> allEntanglements,
-    ICollection<object> allPossibleValues)
+    IEnumerable<Particle> allParticles,
+    IEnumerable<Entanglement> allEntanglements,
+    List<object> allPossibleValues)
 {
     
-    public ICollection<Particle> AllParticles = allParticles;
+    public IEnumerable<Particle> AllParticles = allParticles;
 
-    public ICollection<Entanglement> AllEntanglements = allEntanglements;
+    public IEnumerable<Entanglement> AllEntanglements = allEntanglements;
 
-    public HashSet<object> AllPossibleValues = allPossibleValues.ToHashSet();
+    public List<object> AllPossibleValues = allPossibleValues;
+    
 
     public Particle? GetNamedParticle(string name)
     {
-        return AllParticles.FirstOrDefault(p => p.name == name);
+        return AllParticles.FirstOrDefault(p => p.Name == name);
     }
-    public Particle? lastSet { get; set; }
+    public Particle? LastSet { get; set; }
     
     public bool IsSolved()
     {
-        return AllParticles.AsEnumerable().All(particle => particle.value is not null);
+        return AllParticles.AsEnumerable().All(particle => particle.Value is not null);
     }
 
     public override string ToString()
     {
         return
-            $"{nameof(AllParticles)}: {AllParticles}, {nameof(AllEntanglements)}: {AllEntanglements}, {nameof(AllPossibleValues)}: {AllPossibleValues}, {nameof(lastSet)}: {lastSet}";
+            $"{nameof(AllParticles)}: {AllParticles}, {nameof(AllEntanglements)}: {AllEntanglements}, {nameof(AllPossibleValues)}: {AllPossibleValues}, {nameof(LastSet)}: {LastSet}";
     }
 }

@@ -24,7 +24,7 @@ public class Tests
             solver.SolveNextStep();
         }
 
-        Assert.That(situation.GetNamedParticle("b1")?.value is "3", situation.ToString);
+        Assert.That(situation.GetNamedParticle("b1")?.Value is "3", situation.ToString);
 
 
     }

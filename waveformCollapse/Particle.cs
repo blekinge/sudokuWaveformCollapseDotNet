@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace waveformCollapse;
 
-public abstract class Particle(string name, ICollection<object> possibleValues) : INotifyPropertyChanged
+public abstract class Particle(string name) : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -20,38 +20,62 @@ public abstract class Particle(string name, ICollection<object> possibleValues) 
 
     private object? _value;
 
-    public object? value
+    public object? Value
     {
         get => _value;
         set
         {
-            _value = value;
             if (value is null) return;
+            _value = value;
             foreach (var entanglement in _entanglements)
             {
                 entanglement.ValueAssigned(value);
             }
-            OnPropertyChanged(nameof(value));
+
+            OnPropertyChanged(nameof(Value));
         }
     }
 
-    public bool? derived { get; set; }
+    public bool? Derived { get; set; }
 
-    public string name { get; } = name;
-    public ICollection<object> possibleValues { get; set; } = possibleValues;
+    public string Name { get; } = name;
+
+    private List<object?> _possibleValues = [];
+
+    public List<object?> possibleValues
+    {
+        get => _possibleValues;
+        set
+        {
+            if (Equals(value, _possibleValues)) return;
+            _possibleValues = value;
+            OnPropertyChanged(nameof(possibleValues));
+        }
+    }
 
     public override string ToString()
     {
         return
-            $"{nameof(name)}: {name}, {nameof(value)}: {value}";
+            $"{nameof(Name)}: {Name}, {nameof(Value)}: {Value}, {nameof(possibleValues)}: {String.Join(",", possibleValues)}";
     }
 
 
-    public (Particle, object)? RestrictValue(object value)
+    public (Particle, object)? RestrictValue(object restriction)
     {
-        if (this.value != null) return null;
-        if (!possibleValues.Remove(value)) return null;
-        if (possibleValues is not { Count: 1 }) return null;
-        return (this, possibleValues.First());
+        if (Value != null) return null;
+
+        var indexOfRestrictedValue = possibleValues.FindIndex(v => v?.Equals(restriction) ?? false);
+        if (indexOfRestrictedValue == -1)
+        {
+            return null;
+        }
+
+        possibleValues[indexOfRestrictedValue] = default;
+        OnPropertyChanged(nameof(possibleValues));
+
+        if (possibleValues.Count(v => v is not null) != 1) return null;
+
+        Console.WriteLine(this);
+        return (this, possibleValues.First(v => v is not null))!;
     }
 }

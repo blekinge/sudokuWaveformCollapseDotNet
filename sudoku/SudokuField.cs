@@ -3,8 +3,8 @@ using waveformCollapse;
 
 namespace sudoku;
 
-public class SudokuField(string name, ICollection<object> possibleValues) : Particle(name, possibleValues)
+public class SudokuField(string name) : Particle(name)
 {
-    public String column { get; } = Regex.Replace(name, "\\d", "");
-    public String row { get; } = Regex.Replace(name, "[a-z]", "");
+    public string Column { get; } = Regex.Replace(name, "\\d", "");
+    public string Row { get; } = Regex.Replace(name, "[a-z]", "");
 }

@@ -2,21 +2,21 @@ namespace waveformCollapse;
 
 public class Solver 
 {
-    private Situation situation { get; }
+    private Situation Situation { get; }
     private readonly Queue<(Particle, object)> _workQueue = new();
 
     public Solver(Situation situation)
     {
-        this.situation = situation;
+        Situation = situation;
  
-        Console.WriteLine();
         //reset possible values as we have to start fresh here
+        var situation1 = situation;
         situation.AllParticles.ToList()
             .ForEach(p =>
             {
-                p.possibleValues = [..situation.AllPossibleValues];
-                p.value = null;
-                p.derived = null;
+                p.possibleValues = [..situation1.AllPossibleValues];
+                p.Value = null;
+                p.Derived = null;
             });
         //Add this solver for all entanglements
         situation.AllEntanglements.ToList().ForEach(e => e.Register(this));
@@ -25,13 +25,13 @@ public class Solver
 
     public (Particle, object)? SolveNextStep()
     {
-        if (situation.IsSolved()) return null;
+        if (Situation.IsSolved()) return null;
         
         var (particle, value) = GetNextAssignment() ?? default;
         if (particle == null) return null;
         
-        particle.value = value;
-        situation.lastSet = particle;
+        particle.Value = value;
+        Situation.LastSet = particle;
 
         return (particle, value);
     }
@@ -44,12 +44,12 @@ public class Solver
         do
         {
             assignment = _workQueue.Dequeue();
-        } while (assignment.Item1 is { value: not null });
+        } while (assignment.Item1 is { Value: not null });
 
         return assignment;
     }
 
-    public void EnqueueNewAssignments(ICollection<(Particle, object)> newAssignments)
+    public void EnqueueNewAssignments(IEnumerable<(Particle, object)> newAssignments)
     {
         newAssignments.ToList().ForEach(a => _workQueue.Enqueue(a));
     }

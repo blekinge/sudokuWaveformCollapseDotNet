@@ -2,7 +2,8 @@ namespace waveformCollapse;
 
 public class Entanglement
 {
-    public readonly ICollection<Particle> Particles;
+    public string Name { get; }
+    public readonly IEnumerable<Particle> Particles;
     private Solver? _solver;
 
     public void ValueAssigned(object value)
@@ -14,8 +15,9 @@ public class Entanglement
             .ToHashSet();
 
         var uniqueValues = Particles
-            .Where(p => p.value is null)
+            .Where(p => p.Value is null)
             .SelectMany(p => p.possibleValues)
+            .Where(v => v is not null)
             .GroupBy(p => p)
             .Where(g => g.Count() == 1)
             .Select(g => g.Key);
@@ -24,23 +26,24 @@ public class Entanglement
         {
             assignments.UnionWith(
                 Particles
-                    .Where(p => p.value is null)
+                    .Where(p => p.Value is null)
                     .Where(p => p.possibleValues.Contains(uniqueValue))
                     .Select(p => (p, uniqueValue))
-                    .ToHashSet());
+                    .ToHashSet()!);
         }
 
         _solver?.EnqueueNewAssignments(assignments);
     }
 
-    public Entanglement(params Particle[] particles)
+    public Entanglement(string name, params Particle[] particles)
     {
+        Name = name;
         foreach (var particle in particles)
         {
             particle.Register(this);
         }
 
-        Particles = [..particles.AsEnumerable()];
+        Particles = [..particles.AsEnumerable().Distinct()];
     }
 
     public void Register(Solver? solver)
@@ -50,6 +53,6 @@ public class Entanglement
 
     public override string ToString()
     {
-        return $"{nameof(Particles)}: {Particles}";
+        return $"{Name}: {String.Join(',', Particles.Select(p => p.Name+"="+p.Value))}";
     }
 }
