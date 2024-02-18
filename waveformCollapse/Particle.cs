@@ -3,19 +3,8 @@ using System.ComponentModel;
 
 namespace waveformCollapse;
 
-public abstract class Particle(string name) : INotifyPropertyChanged, INotifyCollectionChanged
+public abstract class Particle(string name) : INotifyPropertyChanged
 {
-    public event NotifyCollectionChangedEventHandler? CollectionChanged;
-
-    protected virtual void OnCollectionChanged(string collectionName, int index, object? value)
-    {
-        Console.WriteLine($"Particle {Name} changed on collection {collectionName} with {index} and {value}");
-        CollectionChanged?.Invoke(this,
-                                  new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace,
-                                                                       value,
-                                                                       index));
-    }
-
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged(string propertyName)
@@ -70,7 +59,6 @@ public abstract class Particle(string name) : INotifyPropertyChanged, INotifyCol
         }
 
         PossibleValues![indexOfRestrictedValue] = default;
-        OnCollectionChanged(nameof(PossibleValues), indexOfRestrictedValue, restriction);
         OnPropertyChanged(nameof(PossibleValues));
 
 

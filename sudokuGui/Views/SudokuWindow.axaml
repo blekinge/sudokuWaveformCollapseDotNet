@@ -34,18 +34,18 @@
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][0].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][0].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[0][0].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][0].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][0].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][0].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][0].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                     <Border Grid.Row="0" Grid.Column="1"
@@ -54,22 +54,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][1].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][1].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][1].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][1].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[0][1].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][1].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][1].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][1].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][1].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                     <Border Grid.Row="1" Grid.Column="0"
@@ -78,22 +78,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][0].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][0].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][0].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][0].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[1][0].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][0].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][0].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][0].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][0].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                     <Border Grid.Row="1" Grid.Column="1"
@@ -102,22 +102,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][1].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][1].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][1].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][1].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[1][1].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][1].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][1].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][1].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][1].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                 </Grid>
@@ -134,22 +134,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][2].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][2].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][2].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][2].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[0][2].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][2].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][2].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][2].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][2].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                     <Border Grid.Row="0" Grid.Column="1"
@@ -158,22 +158,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][3].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][3].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][3].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][3].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[0][3].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][3].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][3].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[0][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[0][3].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[0][3].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                     <Border Grid.Row="1" Grid.Column="0"
@@ -182,22 +182,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][2].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][2].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][2].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][2].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[1][2].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][2].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][2].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][2].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][2].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
 
                     </Border>
@@ -207,22 +207,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][3].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][3].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][3].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][3].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[1][3].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][3].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][3].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[1][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[1][3].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[1][3].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
 
 
@@ -241,22 +241,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][0].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][0].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][0].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][0].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[2][0].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][0].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][0].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][0].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][0].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                     <Border Grid.Row="0" Grid.Column="1"
@@ -265,22 +265,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][1].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][1].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][1].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][1].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[2][1].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][1].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][1].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][1].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][1].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                     <Border Grid.Row="1" Grid.Column="0"
@@ -289,22 +289,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][0].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][0].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][0].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][0].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[3][0].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][0].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][0].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][0].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][0].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][0].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                     <Border Grid.Row="1" Grid.Column="1"
@@ -313,22 +313,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][1].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][1].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][1].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][1].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[3][1].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][1].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][1].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][1].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][1].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][1].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                 </Grid>
@@ -346,22 +346,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][2].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][2].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][2].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][2].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[2][2].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][2].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][2].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][2].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][2].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
 
                     </Border>
@@ -371,22 +371,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][3].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][3].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][3].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][3].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[2][3].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][3].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][3].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[2][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[2][3].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[2][3].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
 
                     </Border>
@@ -396,22 +396,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][2].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][2].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][2].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][2].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
                                        Text="{Binding Path=Index[3][2].Value }" />
                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][2].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][2].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][2].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][2].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][2].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
 
                     </Border>
@@ -422,12 +422,12 @@
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][3].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][3].PossibleValues, ConverterParameter=0, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="0" Grid.Column="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][3].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][3].PossibleValues, ConverterParameter=1, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="1" Grid.Column="1"
                                        HorizontalAlignment="Center" FontWeight="Bold"
                                        VerticalAlignment="Center"
@@ -436,12 +436,12 @@
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][3].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][3].PossibleValues, ConverterParameter=2, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                             <TextBlock Grid.Row="2" Grid.Column="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding Index[3][3].Value, Converter={x:Static ObjectConverters.IsNull}}"
-                                       Text="{Binding Path=Index[3][3].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:MyConverters.IndexConverter}}" />
+                                       Text="{Binding Path=Index[3][3].PossibleValues, ConverterParameter=3, Converter={x:Static sudokuGui:IndexConverters.IndexConverter}}" />
                         </Grid>
                     </Border>
                 </Grid>
